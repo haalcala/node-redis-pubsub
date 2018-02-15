@@ -1,0 +1,31 @@
+{
+  "name": "node-redis-pubsub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [
+    "redis",
+    "cluster",
+    "failover",
+    "pubsub",
+    "pub",
+    "sub"
+  ],
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:haalcala/node-spring.git"
+  },
+  "author": "Harold Alcala",
+  "email": "harold.alcala@gmail.com",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "debug": "^3.1.0"
+  }
+}
