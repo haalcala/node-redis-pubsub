@@ -13,7 +13,7 @@ But ioredis can learn your cluster setup (discover all nodes), but the pub/sub i
 # Installation:
 
 ```bash
-npm install node-redis-pubsub
+npm install redis-pubsub-failover
 ```
 
 # Usage
@@ -23,7 +23,7 @@ var debug = require("debug")(module.filename.split("/").pop());
 
 debug.enabled = true;
 
-var redis_pubsub = require("../index")({
+var redis_pubsub = require("redis-pubsub-failover")({
 	createClient: function (host, port) { // specify your preferred redis client
 		var redis = require("redis"); // CAUTION: only drop-in replacement kind of clients.  Meaning only those clients with the same method signatures
 
