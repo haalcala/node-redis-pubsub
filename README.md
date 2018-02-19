@@ -1,5 +1,3 @@
-This project is to achieve similar functionality as SpringFramework for Java
-
 # Scenario 1
 
 So, you have an existing redis cluster setup.  And you have specific use-case in your app that only use pub/sub and you want it connect
@@ -21,5 +19,27 @@ npm install node-redis-pubsub
 # Usage
 
 ```js
+var debug = require("debug")(module.filename.split("/").pop());
+
+debug.enabled = true;
+
+var redis_pubsub = require("../index")({
+	createClient: function (host, port) { // specify your preferred redis client
+		var redis = require("redis");
+
+		return redis.createClient(port, host);
+	},
+	nodes: [ // the list of hosts in your cluster to use pub/sub ONLY
+		{host: "localhost", port: 7000},
+		{host: "localhost", port: 7001},
+		{host: "localhost", port: 7002}
+	]
+});
+
+redis_pubsub.on("message", function(message) {
+	debug("message", message);
+});
+
+redis_pubsub.subscribe("my_test_channel");
 
 ```
