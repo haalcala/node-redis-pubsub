@@ -1,6 +1,12 @@
+# Overview
+
 Is a drop-in replacement for node_redis BUT only <b>publish</b> and <b>subscribe</b> are made available.
 
 This library provides a fail-over on a specific order specified.
+
+# Project status
+
+Still in initial development and proof of concept
 
 # Scenario 1
 
