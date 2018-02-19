@@ -1,7 +1,7 @@
 # Scenario 1
 
-So, you have an existing redis cluster setup.  And you have specific use-case in your app that only use pub/sub and you want it connect
-to a list of redis and in the specific order you specified.
+So, you have an existing redis cluster setup.  And you have specific use-case in your enterprise that only use pub/sub and you want it connect
+to a list of redis and in the specific order you specified primarily for fail-over.
   
 Now, using a normal redis client only supports single host (no list).  You're next solution is using ioredis (using Cluster class).  
 
@@ -25,7 +25,7 @@ debug.enabled = true;
 
 var redis_pubsub = require("../index")({
 	createClient: function (host, port) { // specify your preferred redis client
-		var redis = require("redis");
+		var redis = require("redis"); // CAUTION: only drop-in replacement kind of clients.  Meaning only those clients with the same method signatures
 
 		return redis.createClient(port, host);
 	},
